@@ -4,7 +4,7 @@ Game Data Module - Starter Code
 
 Name: Kabijah
 
-AI Usage: [Document any AI assistance used]
+AI Usage: Made ChatGPT give me testing stuff
 
 This module handles loading and validating game data from text files.
 """
