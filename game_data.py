@@ -88,8 +88,34 @@ def load_items(filename="data/items.txt"):
     Returns: Dictionary of items {item_id: item_data_dict}
     Raises: MissingDataFileError, InvalidDataFormatError, CorruptedDataError
     """
-    # TODO: Implement this function
-    # Must handle same exceptions as load_quests
+   if not os.path.exists(filename):
+        raise MissingDataFileError(f"Item file '{filename}' not found.")
+
+    try:
+        items = {}
+        with open(filename, "r") as f:
+            block = []
+            for line in f:
+                if line.strip() == "":
+                    if block:
+                        item = parse_item_block(block)
+                        validate_item_data(item)
+                        items[item["item_id"]] = item
+                        block = []
+                else:
+                    block.append(line.strip())
+
+            if block:
+                item = parse_item_block(block)
+                validate_item_data(item)
+                items[item["item_id"]] = item
+
+        return items
+
+    except InvalidDataFormatError:
+        raise
+    except Exception as e:
+        raise CorruptedDataError(f"Could not parse item data: {e}")
     pass
 
 def validate_quest_data(quest_dict):
