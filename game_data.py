@@ -2,7 +2,7 @@
 COMP 163 - Project 3: Quest Chronicles
 Game Data Module - Starter Code
 
-Name: [Your Name Here]
+Name: Kabijah
 
 AI Usage: [Document any AI assistance used]
 
@@ -41,6 +41,36 @@ def load_quests(filename="data/quests.txt"):
     # - FileNotFoundError → raise MissingDataFileError
     # - Invalid format → raise InvalidDataFormatError
     # - Corrupted/unreadable data → raise CorruptedDataError
+
+    if not os.path.exists(filename):
+        raise MissingDataFileError(f"Quest file '{filename}' not found.")
+
+    try:
+        quests = {}
+        with open(filename, "r") as f:
+            block = []
+            for line in f:
+                if line.strip() == "":
+                    if block:
+                        quest = parse_quest_block(block)
+                        validate_quest_data(quest)
+                        quests[quest["quest_id"]] = quest
+                        block = []
+                else:
+                    block.append(line.strip())
+
+            # Catch last block if no trailing newline
+            if block:
+                quest = parse_quest_block(block)
+                validate_quest_data(quest)
+                quests[quest["quest_id"]] = quest
+
+        return quests
+
+    except InvalidDataFormatError:
+        raise
+    except Exception as e:
+        raise CorruptedDataError(f"Could not parse quest data: {e}")
     pass
 
 def load_items(filename="data/items.txt"):
