@@ -298,7 +298,7 @@ def explore():
     """Find and fight random enemies"""
     global current_character
     
-     print("\n=== EXPLORING... ===")
+    print("\n=== EXPLORING... ===")
     level = current_character["level"]
     enemy = combat_system.get_random_enemy_for_level(level)
 
