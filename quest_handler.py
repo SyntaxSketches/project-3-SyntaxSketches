@@ -57,7 +57,7 @@ def accept_quest(character, quest_id, quest_data_dict):
 
     # Accept quest
     character['active_quests'].append(quest_id)
-    return Tru
+    return True
 
 
     
@@ -92,7 +92,7 @@ def complete_quest(character, quest_id, quest_data_dict):
     return {
         "reward_xp": reward_xp,
         "reward_gold": reward_gold
-    
+    }
     pass
 
 def abandon_quest(character, quest_id):
