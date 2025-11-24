@@ -88,7 +88,7 @@ def load_items(filename="data/items.txt"):
     Returns: Dictionary of items {item_id: item_data_dict}
     Raises: MissingDataFileError, InvalidDataFormatError, CorruptedDataError
     """
-   if not os.path.exists(filename):
+    if not os.path.exists(filename):
         raise MissingDataFileError(f"Item file '{filename}' not found.")
 
     try:
@@ -116,7 +116,7 @@ def load_items(filename="data/items.txt"):
         raise
     except Exception as e:
         raise CorruptedDataError(f"Could not parse item data: {e}")
-    pass
+        pass
 
 def validate_quest_data(quest_dict):
     """
