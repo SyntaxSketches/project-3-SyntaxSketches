@@ -260,7 +260,7 @@ def equip_armor(character, item_id, item_data):
 
     character["inventory"].remove(item_id)
 
-    return f"Equipped armor: {item_data['name']} (+{value} {stat}).
+    return f"Equipped armor: {item_data['name']} (+{value} {stat})."
     pass
 
 def unequip_weapon(character):
