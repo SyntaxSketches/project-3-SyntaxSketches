@@ -1,3 +1,5 @@
+from character_manager import heal_character
+
 """
 COMP 163 - Project 3: Quest Chronicles
 Inventory System Module - Starter Code
