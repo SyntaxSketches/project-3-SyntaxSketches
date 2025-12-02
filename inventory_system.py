@@ -406,7 +406,7 @@ def parse_item_effect(effect_string):
         effect_string: String in format "stat_name:value"
     
     Returns: Tuple of (stat_name, value)
-    Example: "health:20" → ("health", 20)
+    #Example: "health:20"  ("health", 20)
     """
     # TODO: Implement effect parsing
     # Split on ":"
