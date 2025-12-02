@@ -92,31 +92,31 @@ def load_character(character_name, save_directory="data/save_games"):
     data = {}
 
     try:
-    for line in lines:
-        clean = line.strip()
-        if clean == "":
-            continue
+        for line in lines:
+            clean = line.strip()
+            if clean == "":
+                continue
 
-        if ":" not in clean:
-            raise InvalidSaveDataError("Bad save file formatting")
+            if ":" not in clean:
+                raise InvalidSaveDataError("Bad save file formatting")
 
-        key, value = clean.split(":", 1)
-        key = key.strip()
-        value = value.strip()
+            key, value = clean.split(":", 1)
+            key = key.strip()
+            value = value.strip()
 
         # Save raw value too if needed
-        data[key] = value
+            data[key] = value
 
         # Parse types automatically
-        if key in ["INVENTORY", "ACTIVE_QUESTS", "COMPLETED_QUESTS"]:
-            data[key.lower()] = value.split(",") if value else []
-        elif key in ["LEVEL","HEALTH","MAX_HEALTH","STRENGTH","MAGIC","EXPERIENCE","GOLD"]:
-            data[key.lower()] = int(value) if value else 0
-        else:
-            data[key.lower()] = value
+            if key in ["INVENTORY", "ACTIVE_QUESTS", "COMPLETED_QUESTS"]:
+                data[key.lower()] = value.split(",") if value else []
+            elif key in ["LEVEL","HEALTH","MAX_HEALTH","STRENGTH","MAGIC","EXPERIENCE","GOLD"]:
+                data[key.lower()] = int(value) if value else 0
+            else:
+                data[key.lower()] = value
 
-except Exception:
-    raise InvalidSaveDataError("Bad save file formatting")
+    except Exception:
+        raise InvalidSaveDataError("Bad save file formatting")
 
     validate_character_data(data)
     return data
