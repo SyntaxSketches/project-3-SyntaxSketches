@@ -187,7 +187,7 @@ def create_default_data_files():
     Create default data files if they don't exist
     This helps with initial setup and testing
     """
-     """Creates data folder + starter files if missing."""
+    """Creates data folder + starter files if missing."""
     os.makedirs("data", exist_ok=True)
 
     # Default quests
