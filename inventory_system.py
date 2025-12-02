@@ -432,15 +432,15 @@ def apply_stat_effect(character, stat_name, value):
     pass
 
 def display_inventory(character, item_data_dict):
-    """
-    Display character's inventory in formatted way
     
-    Args:
-        character: Character dictionary
-        item_data_dict: Dictionary of all item data
+    #Display character's inventory in formatted way
     
-    Shows item names, types, and quantities
-    """
+    # Args:
+       # character: Character dictionary
+       # item_data_dict: Dictionary of all item data
+    
+    #Shows item names, types, and quantities
+    
     # TODO: Implement inventory display
     # Count items (some may appear multiple times)
     # Display with item names from item_data_dict
