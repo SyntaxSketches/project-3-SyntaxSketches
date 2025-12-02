@@ -150,7 +150,8 @@ def use_item(character, item_id, item_data):
     # Remove from inventory after use
     character["inventory"].remove(item_id)
 
-    return f"Used {item_data['name']} and gained {value} {stat}."
+    item_name = item_data.get("name", item_id)
+    return f"Used {item_name} and gained {value} {stat}."
     pass
 
 def equip_weapon(character, item_id, item_data):
