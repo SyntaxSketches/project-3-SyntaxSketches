@@ -274,7 +274,7 @@ def parse_item_block(lines):
     Returns: Dictionary with item data
     Raises: InvalidDataFormatError if parsing fails
     """
-     item = {}
+    item = {}
     expected_fields = {
         "ITEM_ID": "item_id",
         "NAME": "name",
