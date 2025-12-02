@@ -319,11 +319,15 @@ def can_character_fight(character):
 
 def get_victory_rewards(enemy):
     """
-    Calculate rewards for defeating enemy
-    
-    Returns: Dictionary with 'xp' and 'gold'
+    Return a dict of XP and gold rewards after defeating an enemy.
+    Required keys (tests expect):
+    - xp
+    - gold
     """
-    return {"xp_gained": enemy["xp_reward"], "gold_gained": enemy["gold_reward"]}
+    return {
+        "xp": enemy.get("xp_reward", 0),
+        "gold": enemy.get("gold_reward", 0)
+    }
     pass
 
 def display_combat_stats(character, enemy):
