@@ -275,7 +275,7 @@ def unequip_weapon(character):
     # Remove stat bonuses
     # Add weapon back to inventory
     # Clear equipped_weapon from character
-    """
+    
     if "equipped_weapon" not in character or character["equipped_weapon"] is None:
         return None  # No weapon to unequip
 
