@@ -139,17 +139,27 @@ def use_item(character, item_id, item_data):
     # Apply effect to character
     # Remove item from inventory
     if item_id not in character["inventory"]:
-        raise ItemNotFoundError(f"{item_id} not found in inventory.")
-
+        raise ItemNotFoundError(f"{item_id} not in inventory")
+        
     if item_data["type"] != "consumable":
-        raise InvalidItemTypeError("Item is not consumable.")
+        raise InvalidItemTypeError("Item is not consumable")
+        
+    stat, value = item_data["effect"].split(":")
+    stat = stat.strip()
+    value = int(value.strip())
 
-    stat, value = parse_item_effect(item_data["effect"])
-    apply_stat_effect(character, stat, value)
-
+    # Apply effect
+    if stat == "health":
+        # Use your existing heal_character to avoid exceeding max_health
+        heal_character(character, value)
+    else:
+        character[stat] += value
+ 
     # Remove from inventory after use
     character["inventory"].remove(item_id)
 
+
+    # Get item name if present, otherwise use item_id
     item_name = item_data.get("name", item_id)
     return f"Used {item_name} and gained {value} {stat}."
     pass
