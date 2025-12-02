@@ -101,6 +101,7 @@ def load_character(character_name, save_directory="data/save_games"):
             raise InvalidSaveDataError("Bad save file formatting")
 
         key, value = clean.split(": ", 1)
+        data[key] = value
 
             if key in ["INVENTORY", "ACTIVE_QUESTS", "COMPLETED_QUESTS"]:
                 data[key.lower()] = value.split(",") if value else []
