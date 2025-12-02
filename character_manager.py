@@ -93,7 +93,14 @@ def load_character(character_name, save_directory="data/save_games"):
 
     try:
         for line in lines:
-            key, value = line.strip().split(": ", 1)
+        clean = line.strip()
+        if clean == "":
+            continue  # skip blank lines
+
+        if ": " not in clean:
+            raise InvalidSaveDataError("Bad save file formatting")
+
+        key, value = clean.split(": ", 1)
 
             if key in ["INVENTORY", "ACTIVE_QUESTS", "COMPLETED_QUESTS"]:
                 data[key.lower()] = value.split(",") if value else []
