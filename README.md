@@ -48,3 +48,42 @@ AI Usage
 - Generating module summaries
 - Refining and debugging strategies.
 - Drafting readable error explanations and architectural notes.
+- 
+
+## **How to Play**
+
+* Install **Python 3.10+**.
+
+* Ensure project contains all required modules and the `data/` folder.
+
+* Run the game:
+
+  ```bash
+  python main.py
+  ```
+
+* **Main Menu:**
+
+  * **New Game** → choose name + class
+  * **Load Game** → pick an existing save
+  * **Exit**
+
+* **In-Game Menu:**
+
+  * View **stats**
+  * Manage **inventory** (use/equip/drop)
+  * Check **quests** (active, available, completed)
+  * **Explore** to trigger combat encounters
+  * Visit the **shop** (buy/sell items)
+  * **Save & Quit**
+* **Combat:**
+  * Turn-based: attack, use ability, or try to run
+  * Win to gain **XP + gold**
+  * Lose → revive for gold or return to menu
+* **Data Files:**
+  * `game_data.py` will auto-create starter quests/items if missing.
+
+
+
+
+
