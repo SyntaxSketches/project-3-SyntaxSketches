@@ -2,11 +2,23 @@
 
 Project Documentation
 Module Architecture
-inventory.py — Manages player inventory, consumables, equipment, and shop actions. Includes item usage, gear swapping, stat-effect parsing, and shop purchase/sell logic.
-data_loader.py — Loads and validates quest and item data from text files. Auto-generates default data if missing. Handles parsing of item/quest blocks and strict format checking.
-combat_system.py — Handles enemy creation, turn-based combat, attacks, abilities, damage calculations, rewards, and combat logging.
-character.py (implied) — Defines player stats, classes, and health cap logic used across modules.
-main.py / game.py (or equivalent) — High-level game loop that connects exploration, combat, inventory, and progression.
+character_manager.py
+Handles player characters: create, save/load, validation, XP/leveling, gold, healing, and save-file management. Simple text saves using <name>_save.txt.
+
+inventory.py
+Manages inventory capacity, consumables, equipment, stat effects, shop buying/selling, and item usage via "stat:value" format.
+
+game_data.py
+Loads quests/items from text files, validates formatting, parses block structures, and auto-creates default data if missing.
+
+quest_handler.py
+Controls quest availability, acceptance, completion, prerequisites, progress tracking, XP/gold rewards, and quest lists.
+
+combat_system.py
+Handles enemy creation, turn-based battles, damage, abilities, rewards, win/loss conditions, and combat logs.
+
+main.py
+Central game controller: menus, exploration, shop, saving/loading, character display, running battles, and linking all subsystems into a full playable loop.
 
 Exception Strategy
 Your project uses custom errors to enforce correctness and make debugging predictable:
