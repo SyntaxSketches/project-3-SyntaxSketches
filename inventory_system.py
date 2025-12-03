@@ -426,7 +426,7 @@ def parse_item_effect(effect_string):
     # Split on ":"
     # Convert value to integer
     stat, val = effect_string.split(":")
-    return stat, int(val)
+    return stat.strip(), int(val.strip())
     pass
 
 def apply_stat_effect(character, stat_name, value):
@@ -440,6 +440,11 @@ def apply_stat_effect(character, stat_name, value):
     # TODO: Implement stat application
     # Add value to character[stat_name]
     # If stat is health, ensure it doesn't exceed max_health
+    if stat_name not in character:
+        raise InvalidActionError(f"Stat '{stat_name}' does not exist on character")
+
+    character[stat_name] += value
+    
     if stat_name == "health":
         if character["health"] > character["max_health"]:
             character["health"] = character["max_health"]
