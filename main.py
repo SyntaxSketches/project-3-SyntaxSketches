@@ -4,7 +4,7 @@ Main Game Module - Starter Code
 
 Name: Kabijah H
 
-AI Usage: [Document any AI assistance used]
+AI Usage: debugging and code structure
 
 This is the main game file that ties all modules together.
 Demonstrates module integration and complete game flow.
