@@ -4,7 +4,7 @@ Quest Handler Module - Starter Code
 
 Name: Kabijah Hill
 
-AI Usage: [Document any AI assistance used]
+AI Usage: help indention issues and debugging
 
 This module handles quest management, dependencies, and completion.
 """
