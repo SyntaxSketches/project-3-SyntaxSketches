@@ -4,7 +4,7 @@ Combat System Module - Starter Code
 
 Name: Kabijah 
 
-AI Usage: [Document any AI assistance used]
+AI Usage: gave explantaions on code, debugging, and code structures 
 
 Handles combat mechanics
 """
