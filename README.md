@@ -2,23 +2,19 @@
 
 Project Documentation
 Module Architecture
+
 character_manager.py
-Handles player characters: create, save/load, validation, XP/leveling, gold, healing, and save-file management. Simple text saves using <name>_save.txt.
-
+- Handles player characters: create, save/load, validation, XP/leveling, gold, healing, and save-file management. Simple text saves using <name>_save.txt.
 inventory.py
-Manages inventory capacity, consumables, equipment, stat effects, shop buying/selling, and item usage via "stat:value" format.
-
+- Manages inventory capacity, consumables, equipment, stat effects, shop buying/selling, and item usage via "stat:value" format.
 game_data.py
-Loads quests/items from text files, validates formatting, parses block structures, and auto-creates default data if missing.
-
+- Loads quests/items from text files, validates formatting, parses block structures, and auto-creates default data if missing.
 quest_handler.py
-Controls quest availability, acceptance, completion, prerequisites, progress tracking, XP/gold rewards, and quest lists.
-
+- Controls quest availability, acceptance, completion, prerequisites, progress tracking, XP/gold rewards, and quest lists.
 combat_system.py
-Handles enemy creation, turn-based battles, damage, abilities, rewards, win/loss conditions, and combat logs.
-
+- Handles enemy creation, turn-based battles, damage, abilities, rewards, win/loss conditions, and combat logs.
 main.py
-Central game controller: menus, exploration, shop, saving/loading, character display, running battles, and linking all subsystems into a full playable loop.
+- Central game controller: menus, exploration, shop, saving/loading, character display, running battles, and linking all subsystems into a full playable loop.
 
 Exception Strategy
 Your project uses custom errors to enforce correctness and make debugging predictable:
