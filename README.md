@@ -35,19 +35,16 @@ Your project uses custom errors to enforce correctness and make debugging predic
 Exceptions are raised as early as possible—during loading, parsing, or validation—to prevent bad data or illegal gameplay states from cascading.
 
 Design Choices
-Modular Separation: Inventory, combat, and data loading are isolated so each system can be improved independently.
-Text-Based Data Files: Items and quests use human-readable .txt blocks, making the game mod-friendly without changing code.
-Stat-Effect Format "stat:value": Simple to parse, allows flexible item/buff definitions, consistent across consumables and equipment.
-Turn-Based Combat Loop: Chosen for clarity, readability, and easier debugging.
-Clear Validation Steps: Strict parsing avoids silent failures, ensures data integrity, and makes error messages user-friendly.
-Equipment Auto-Swap: Equipping returns old gear to inventory automatically to prevent accidental item loss.
-Separation of Player Abilities: Special abilities implemented as individual functions for readability and balance tweaking.
+- Keep things separate: Inventory, combat, and data loading all run on their own, so it’s easier to tweak or upgrade each without messing up the others.
+- Simple text files: Items and quests are stored in plain .txt files, which makes modding super easy without touching the actual code.
+- Easy stat format: Using "stat:value" keeps things consistent and flexible for buffs, consumables, and gear.
+- Turn-based battles: The combat loop is turn-based, which makes it clearer to follow and way easier to debug.
+- Strict checks: Data gets validated carefully, so you don’t end up with silent errors—plus, error messages are straightforward.
+- Auto gear swap: When you equip something new, your old gear goes back into your inventory automatically, so nothing gets lost.
+- Abilities split up: Special abilities are written as separate functions, which keeps the code clean and makes balancing simpler.
 
 AI Usage
-
-AI assistance (ChatGPT) was used for:
-Generating module summaries
-Refining and debugging strategies.
-Drafting readable error explanations and architectural notes.
-
-All game logic, mechanics, and code integration were ultimately created and tested by the developer.
+- AI assistance (ChatGPT) was used for:
+- Generating module summaries
+- Refining and debugging strategies.
+- Drafting readable error explanations and architectural notes.
