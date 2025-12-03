@@ -6,7 +6,7 @@ Inventory System Module - Starter Code
 
 Name: [Your Name Here]
 
-AI Usage: [Document any AI assistance used]
+AI Usage: debugging and code structure 
 
 This module handles inventory management, item usage, and equipment.
 """
